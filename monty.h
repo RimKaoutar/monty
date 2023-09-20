@@ -5,11 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define EXIT_SUCCESS 0
-
-/* Errors Codes */
-#define EXIT_FAILURE 1
-
 /* Manipulation Errors */
 #define USAGE_ERROR 100
 #define PUSH_ERROR 101
