@@ -10,6 +10,21 @@
 /* Errors Codes */
 #define EXIT_FAILURE 1
 
+/* Manipulation Errors */
+#define USAGE_ERROR 100
+#define PUSH_ERROR 101
+#define PINT_ERROR 102
+#define POP_ERROR 103
+#define SWAP_ERROR 104
+#define ADD_ERROR 105
+#define SUB_ERROR 106
+#define DIV_ERROR 107
+#define ZERODIV_ERROR 108
+#define MUL_ERROR 109
+#define MOD_ERROR 110
+#define PCHARVALUE_ERROR 111
+#define PCHAREMPTY_ERROR 112
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
