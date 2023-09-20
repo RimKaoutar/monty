@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define EXIT_SUCCESS 0
+
 /* Errors Codes */
 #define EXIT_FAILURE 1
 
@@ -38,5 +40,14 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* pall.c */
+void pall(stack_t **stack);
+
+/* push.c */
+void push(stack_t **stack, unsigned int n);
+
+/* pop.c */
+void pop(stack_t **stack);
 
 #endif /* MONTY_H */
