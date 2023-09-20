@@ -3,7 +3,6 @@
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t new;
-	stack_t current;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
@@ -13,20 +12,16 @@ void push(stack_t **stack, unsigned int n)
 	}
 
 	new->n = n;
-	new->next = NULL;
+	new->prev = NULL;
 	if (*stack == NULL)
 	{
-		new->prev = NULL;
+		new->next = *stack;
 		*stack = new;
 	}
 	else
 	{
-		current = *stack;
-		while(current && current->next)
-			current = current->next;
-
-		new->prev = current;
-		current->next = new;
+		new->next = *stack;
+		(*stack)->prev = new;
 	}
 
 }
