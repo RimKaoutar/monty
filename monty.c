@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
 	filename = argv[1];
 
-	/* must check if the file is readable */
+	is_readable(filename);
 	file = fopen(filename, "r");
 	if (!file)
 	{

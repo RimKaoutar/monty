@@ -49,5 +49,6 @@ void push(stack_t **stack, unsigned int n);
 
 /* pop.c */
 void pop(stack_t **stack);
+void is_readable(char *filename);
 
 #endif /* MONTY_H */
