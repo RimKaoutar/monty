@@ -3,7 +3,7 @@
 
 void pall(stack_t **stack)
 {
-	stack_t current;
+	stack_t *current;
 
 	current = *stack;
 	while (current)
