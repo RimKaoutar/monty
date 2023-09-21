@@ -2,7 +2,7 @@
 
 void push(stack_t **stack, unsigned int n)
 {
-	stack_t new;
+	stack_t *new;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)

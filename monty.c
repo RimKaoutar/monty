@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
 	while( (cmd = getline(&line, len, file)) != -1)
 	{
-		/* handles this later */
+		
 	}
 	
 	free(line);
