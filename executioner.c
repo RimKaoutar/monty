@@ -30,7 +30,7 @@ void splitter(char* line_buffer, stack_t **stack)
 			free(line_buffer);
 			exit(EXIT_FAILURE);
 		}
-		exec(token, opcode_arg, stack, line_nbr);
+		exec(token, opcode_arg, line_nbr);
 		token = strtok(NULL, " \t\n");
 	}
 
@@ -44,7 +44,7 @@ void splitter(char* line_buffer, stack_t **stack)
  * Return: the return will be the pointer to the function that
  * does the opcode, or NULL
 */
-void (*exec(char *op_code, char *n, stack_t **stack, unsigned int line_number))
+void (*exec(char *op_code, char *n, unsigned int line_number))
 (stack_t **, unsigned int)
 {
 	instruction_t instruction[] = {{"pall", pall}, {"push", push}, {NULL, NULL}};
