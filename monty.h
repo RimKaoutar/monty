@@ -53,13 +53,13 @@ typedef struct instruction_s
 } instruction_t;
 
 /* pall.c */
-void pall(stack_t **stack);
+void pall(stack_t **stack, unsigned int line_number);
 
 /* push.c */
 void push(stack_t **stack, unsigned int n);
 
 /* pop.c */
-void pop(stack_t **stack);
+void pop(stack_t **stack, unsigned int line_number);
 void is_readable(char *filename);
 
 #endif /* MONTY_H */
