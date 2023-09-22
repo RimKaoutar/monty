@@ -16,7 +16,7 @@
  * If next is NULL, stack becomes empty.
  * Finally it frees the memory of temporary node.
  * This implements popping or removing the top element.
- * 
+ *
  * Return: None
  */
 void pop(stack_t **stack, unsigned int linenum)
