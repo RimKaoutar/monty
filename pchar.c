@@ -4,7 +4,7 @@
  * pchar - Prints the char at the top of the stack
  * @stack: Double pointer to the stack
  * @linenum: Line number
- * 
+ *
  * Description:
  * This function prints the char represented by the top element of
  * the stack.
@@ -12,7 +12,7 @@
  * Then it checks if the integer value is within the ASCII range(0-127)
  * If in range, it prints the char, else handles out of range error.
  * This allows representation of integers as chars for certain opcodes.
- * 
+ *
  * Return: None
  */
 void pchar(stack_t **stack, unsigned int linenum)
