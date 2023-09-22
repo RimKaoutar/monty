@@ -22,23 +22,22 @@ stack_t *head = NULL;
  * 
  * Return: Always 0.
  */
-
 int main(int argc, char *argv[])
 {
 	FILE *file = NULL;
-	char *filename = NULL, *opcode = NULL, *n = NULL, *linenum = NULL;
 	size_t len = 0;
-	int status = 0, cmd = 0;
 	unsigned int linenum = 0;
+	int cmd = 0, status = 0;
+	char *filename = NULL, *opcode = NULL, *n = NULL, *rline = NULL;
 
 	filename = argv[1];
 	check_args_num(argc);
 	file = open_file(filename);
 
-	while ((cmd = getline(&linenum, &len, file)) != -1)
+	while ((cmd = getline(&rline, &len, file)) != -1)
 	{
 		linenum++;
-		opcode = strtok(linenum, " \t\n");
+		opcode = strtok(rline, " \t\n");
 		if (opcode)
 		{
 			if (opcode[0] == '#')
@@ -50,14 +49,14 @@ int main(int argc, char *argv[])
 			if (status >= 100 && status < 300)
 			{
 				fclose(file);
-				handle_error(status, opcode, linenum, linenum);
+				handle_error(status, opcode, linenum, rline);
 			}
 		}
 
 	}
 
 	free_stack();
-	free(linenum);
+	free(rline);
 	fclose(file);
 	return (0);
 }

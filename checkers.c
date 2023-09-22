@@ -43,7 +43,7 @@ void check_read_permission(char *file)
 }
 
 /**
- * check_push_data - Checks if data is valid for pushing onto stack
+ * check_push_n - Checks if data is valid for pushing onto stack
  * @num: String to check
  * 
  * Description:
@@ -57,7 +57,7 @@ void check_read_permission(char *file)
  * 
  * Return: ERR_PUSH (201) or VALID_DATA (0)
 */
-int check_push_data(char *num)
+int check_push_n(char *num)
 {
 	if (num == NULL || check_digits(num) == 0)
 		return (ERR_PUSH);

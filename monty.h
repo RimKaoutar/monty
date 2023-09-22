@@ -75,7 +75,7 @@ void handle_op_errors(int errno, unsigned int line);
 void push(stack_t **stack, unsigned int data);
 void check_read_permission(char *filename);
 unsigned int count_stack(stack_t *stack);
-int check_push_data(char *param);
+int check_push_n(char *param);
 void check_args_num(int argn);
 int check_digits(char *s);
 void free_stack(void);
