@@ -4,7 +4,7 @@
  * pstr - Prints the string represented by the stack
  * @stack: Double pointer to the stack
  * @linenum: Line number (unused)
- * 
+ *
  * Description:
  * This function prints the string represented by the stack contents.
  * It takes the head node and iterates through the stack:
@@ -14,7 +14,7 @@
  * The line number parameter is unused.
  * A newline is printed at the end.
  * This allows printing string values stored in the stack.
- * 
+ *
  * Return: None
  */
 void pstr(stack_t **stack, unsigned int linenum)
