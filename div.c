@@ -5,14 +5,14 @@
  * them with the result
  * @stack: Double pointer to the stack
  * @line_number: Line number of error origin if any
- * 
+ *
  * Description:
  * This function divides the data (n) of the second node by the
  * top node of the stack.
  * It checks for invalid cases like length < 2, zero divisor.
  * If valid, it performs the division, stores result in second
  * node, removes top node and frees its memory.
- * 
+ *
  * Return: None
  */
 void divide(stack_t **stack, unsigned int line_number)
