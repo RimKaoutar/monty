@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * free_stack - Frees the memory of an entire stack
+ * _free - Frees the memory of an entire stack
  * 
  * Description:
  * This function iterates through the stack and frees the memory of
@@ -18,7 +18,7 @@
  * Return: None
 */
 
-void free_stack(void)
+void _free(void)
 {
 	stack_t *current = NULL;
 

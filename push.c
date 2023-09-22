@@ -28,7 +28,7 @@ void push(stack_t **stack, unsigned int n)
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		handle_error(ERR_MALLOC, NULL, 0, NULL);
+		error_manager(ERR_MALLOC, NULL, 0, NULL);
 
 	new->n = n;
 	if (*stack)
@@ -70,7 +70,7 @@ void push_queue(stack_t **stack, unsigned int n)
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		handle_error(ERR_MALLOC, NULL, 0, NULL);
+		error_manager(ERR_MALLOC, NULL, 0, NULL);
 
 	new->n = n;
 	if (*stack)

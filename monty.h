@@ -1,25 +1,19 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
-#include <ctype.h>
-#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
+#include <fcntl.h>
 
-/* Constants */
-#define VALID_DATA		0
-#define MIN_ARGS		2
-
-/* General Error Codes */
+/* Error Codes */
 #define ERR_INVALID	100
 #define ERR_MALLOC	101
 #define ERR_INVLD_PARM	102
 #define METH_STACK		300
 #define METH_QUEUE		301
-
-/* Op Errors Codes */
 #define ERR_USAGE		200
 #define ERR_PUSH		201
 #define ERR_PINT		202
@@ -33,6 +27,10 @@
 #define ERR_MOD			210
 #define ERR_PCHAR_F		211
 #define ERR_PCHAR_E		212
+
+/* Constants */
+#define VALID_DATA		0
+#define MIN_ARGS		2
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -66,34 +64,34 @@ typedef struct instruction_s
 
 extern stack_t *head;
 
-int handle_execution(char *op_code, char *data, unsigned int line, int mstat);
-void handle_error(int errno, char *opcode, unsigned int line, char *line_read);
-void handle_inv_malloc(int errno, char *opcode, unsigned int line);
-void handle_more_errors(int errno, unsigned int line);
 void (*get_opcode(char *s))(stack_t **, unsigned int);
+void error_manager(int errno, char *opcode, unsigned int line, char *line_read);
+void malloc_error(int errno, char *opcode, unsigned int line);
+void pchar_error(int errno, unsigned int line);
 void handle_op_errors(int errno, unsigned int line);
-void push(stack_t **stack, unsigned int data);
-void check_read_permission(char *filename);
 unsigned int count_stack(stack_t *stack);
-int check_push_n(char *param);
-void check_args_num(int argn);
-int check_digits(char *s);
-void free_stack(void);
-void divide(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void push_queue(stack_t **stack, unsigned int data);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int data);
+void rotr(stack_t **stack, unsigned int line_number);
+int executionner(char *op_code, char *data, unsigned int line, int mstat);
+void _free(void);
+void pstr(stack_t **stack, unsigned int line_number);
+int is_number(char *s);
+int check_push_n(char *param);
+void is_readable(char *filename);
+void swap(stack_t **stack, unsigned int line_number);
+void check_args_num(int argn);
 FILE *open_file(char *filename);
+void pall(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void push_queue(stack_t **stack, unsigned int data);
+void pint(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
 #endif /* __MONTY_H__ */

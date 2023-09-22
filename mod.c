@@ -25,12 +25,12 @@ void mod(stack_t **stack, unsigned int linenum)
 	len = count_stack(*stack);
 
 	if (len < 2)
-		handle_error(ERR_MOD, NULL, linenum, NULL);
+		error_manager(ERR_MOD, NULL, linenum, NULL);
 
 	i = tmp->n;
 
 	if (i == 0)
-		handle_error(ERR_ZERO_DIV, NULL, linenum, NULL);
+		error_manager(ERR_ZERO_DIV, NULL, linenum, NULL);
 
 	j = tmp->next->n;
 	tmp->next->n = j % i;

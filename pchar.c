@@ -18,10 +18,10 @@
 void pchar(stack_t **stack, unsigned int linenum)
 {
 	if (*stack == NULL)
-		handle_error(ERR_PCHAR_E, NULL, linenum, NULL);
+		error_manager(ERR_PCHAR_E, NULL, linenum, NULL);
 
 	if ((*stack)->n >= 0 && (*stack)->n <= 127)
 		printf("%c\n", (*stack)->n);
 	else
-		handle_error(ERR_PCHAR_F, NULL, linenum, NULL);
+		error_manager(ERR_PCHAR_F, NULL, linenum, NULL);
 }

@@ -23,12 +23,12 @@ void divide(stack_t **stack, unsigned int line_number)
 	len = count_stack(*stack);
 
 	if (len < 2)
-		handle_error(ERR_DIV, NULL, line_number, NULL);
+		error_manager(ERR_DIV, NULL, line_number, NULL);
 
 	i = tmp->n;
 
 	if (i == 0)
-		handle_error(ERR_ZERO_DIV, NULL, line_number, NULL);
+		error_manager(ERR_ZERO_DIV, NULL, line_number, NULL);
 
 	j = tmp->next->n;
 	tmp->next->n = j / i;

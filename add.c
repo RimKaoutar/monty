@@ -12,7 +12,7 @@
  * sum and removes the top node, effectively performing an "add"
  * operation on the stack.
  * It first checks if there are less than two elements to perform
- * the operation. If so, it calls handle_error().
+ * the operation. If so, it calls error_manager().
  * It then saves the data of the top two nodes, performs the addition
  * and stores the result in the second node. The top node is freed
  * after removing it from the stack.
@@ -27,7 +27,7 @@ void add(stack_t **stack, unsigned int linenum)
 	len = count_stack(*stack);
 
 	if (len < 2)
-		handle_error(ERR_ADD, NULL, linenum, NULL);
+		error_manager(ERR_ADD, NULL, linenum, NULL);
 
 	i = tmp->n;
 	j = tmp->next->n;

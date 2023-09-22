@@ -44,18 +44,18 @@ int main(int argc, char *argv[])
 				continue;
 
 			n = strtok(NULL, " \t\n");
-			status = handle_execution(opcode, n, linenum, status);
+			status = executionner(opcode, n, linenum, status);
 
 			if (status >= 100 && status < 300)
 			{
 				fclose(file);
-				handle_error(status, opcode, linenum, rline);
+				error_manager(status, opcode, linenum, rline);
 			}
 		}
 
 	}
 
-	free_stack();
+	_free();
 	free(rline);
 	fclose(file);
 	return (0);

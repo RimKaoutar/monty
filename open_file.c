@@ -6,7 +6,7 @@
  * 
  * Description:
  * This function opens the given file and returns a FILE pointer.
- * It first calls check_read_permission() to validate permissions.
+ * It first calls is_readable() to validate permissions.
  * It then attempts to open the file in read mode using fopen().
  * If fopen() fails, an error message is printed and the program exits.
  * The FILE pointer is returned upon success.
@@ -18,7 +18,7 @@ FILE *open_file(char *filename)
 {
 	FILE *file = NULL;
 
-	check_read_permission(filename);
+	is_readable(filename);
 
 	file = fopen(filename, "r");
 

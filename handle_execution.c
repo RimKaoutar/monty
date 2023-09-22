@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * handle_execution - Executes opcode functions with parameters
+ * executionner - Executes opcode functions with parameters
  * @op_code: Opcode string read from file
  * @n: Parameter to pass for push opcode
  * @line: Line number of opcode
@@ -19,7 +19,7 @@
  * Return: ERR_INVALID or method
 */
 
-int handle_execution(char *op_code, char *n, unsigned int line, int meth)
+int executionner(char *op_code, char *n, unsigned int line, int meth)
 {
 	int status_op = 0;
 	void (*opcode_function)(stack_t **, unsigned int);

@@ -22,7 +22,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	len = count_stack(*stack);
 
 	if (len < 2)
-		handle_error(ERR_SWAP, NULL, line_number, NULL);
+		error_manager(ERR_SWAP, NULL, line_number, NULL);
 
 	if (*stack != NULL)
 	{

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * handle_error - Handles program errors
+ * error_manager - Handles program errors
  * @errnum: Error number code
  * @opcode: Causing operation if any
  * @line: Line number of error
@@ -11,28 +11,28 @@
  * This function handles different types of errors based on the
  * error number code range.
  * It will call the appropriate error handling function:
- * handle_inv_malloc for invalid memory errors
+ * malloc_error for invalid memory errors
  * handle_op_errors for operation errors
- * handle_more_errors for other errors
- * It then frees all resources by calling free_stack().
+ * pchar_error for other errors
+ * It then frees all resources by calling _free().
  * If a line number string was passed, it is freed as well.
  * Finally, the program exits with failure status.
  * 
  * Return: None
 */
 
-void handle_error(int errnum, char *opcode, unsigned int line, char *linenum)
+void error_manager(int errnum, char *opcode, unsigned int line, char *linenum)
 {
 	if (errnum >= 100 && errnum < 200)
-		handle_inv_malloc(errnum, opcode, line);
+		malloc_error(errnum, opcode, line);
 	else if (errnum >= 200 && errnum <= 210)
 		handle_op_errors(errnum, line);
 	else if (errnum >= 211 && errnum <= 220)
-		handle_more_errors(errnum, line);
+		pchar_error(errnum, line);
 	else
 		return;
 
-	free_stack();
+	_free();
 
 	if (linenum)
 		free(linenum);
@@ -40,7 +40,7 @@ void handle_error(int errnum, char *opcode, unsigned int line, char *linenum)
 	exit(EXIT_FAILURE);
 }
 /**
- * handle_inv_malloc - Handles errors for invalid memory allocation
+ * malloc_error - Handles errors for invalid memory allocation
  * @errnum: Specific error number code
  * @opcode: Causing operation if any
  * @line: Line number of error
@@ -63,7 +63,7 @@ void handle_error(int errnum, char *opcode, unsigned int line, char *linenum)
  * Return: None
 */
 
-void handle_inv_malloc(int errnum, char *opcode, unsigned int line)
+void malloc_error(int errnum, char *opcode, unsigned int line)
 {
 	switch (errnum)
 	{
@@ -148,7 +148,7 @@ void handle_op_errors(int errnum, unsigned int line)
 }
 
 /**
- * handle_more_errors - Handles additional error cases
+ * pchar_error - Handles pchar error cases
  * @errnum: Specific error code
  * @line: Line number of error
  * 
@@ -164,7 +164,7 @@ void handle_op_errors(int errnum, unsigned int line)
  * 
  * Return: None
   */
-void handle_more_errors(int errnum, unsigned int line)
+void pchar_error(int errnum, unsigned int line)
 {
 	switch (errnum)
 	{

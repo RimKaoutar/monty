@@ -23,7 +23,7 @@ void sub(stack_t **stack, unsigned int linenum)
 	length = count_stack(*stack);
 
 	if (length < 2)
-		handle_error(ERR_SUB, NULL, linenum, NULL);
+		error_manager(ERR_SUB, NULL, linenum, NULL);
 
 	a = tmp->n;
 	b = tmp->next->n;

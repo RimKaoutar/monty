@@ -24,7 +24,7 @@ void pop(stack_t **stack, unsigned int linenum)
 	stack_t *current = *stack, *temp = NULL;
 
 	if (*stack == NULL)
-		handle_error(ERR_POP, NULL, linenum, NULL);
+		error_manager(ERR_POP, NULL, linenum, NULL);
 
 	temp = current;
 	if (current->next)

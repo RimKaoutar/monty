@@ -16,11 +16,11 @@
 void check_args_num(int num)
 {
 	if (num != MIN_ARGS)
-		handle_error(ERR_USAGE, NULL, 0, NULL);
+		error_manager(ERR_USAGE, NULL, 0, NULL);
 }
 
 /**
- * check_read_permission - Checks if the given file can be read
+ * is_readable - Checks if the given file can be read
  * @file: Name of the file to check read permission for
  * 
  * Description:
@@ -33,7 +33,7 @@ void check_args_num(int num)
  * Return: None
 */
 
-void check_read_permission(char *file)
+void is_readable(char *file)
 {
 	if (access(file, R_OK) == -1)
 	{
@@ -50,7 +50,7 @@ void check_read_permission(char *file)
  * Checks if the given string contains only digit characters.
  * Returns ERR_PUSH if:
  * num is NULL
- * check_digits() returns 0, meaning num is empty or invalid
+ * is_number() returns 0, meaning num is empty or invalid
  * Otherwise returns VALID_DATA if num contains only digits.
  * This verifies data is in the proper format before allowing it
  * to be pushed onto the stack.
@@ -59,14 +59,14 @@ void check_read_permission(char *file)
 */
 int check_push_n(char *num)
 {
-	if (num == NULL || check_digits(num) == 0)
+	if (num == NULL || is_number(num) == 0)
 		return (ERR_PUSH);
 
 	return (VALID_DATA);
 }
 
 /**
- * check_digits - Checks if a string contains only digit characters
+ * is_number - Checks if a string contains only digit characters
  * @str: String to check
  * 
  * Description:
@@ -79,7 +79,7 @@ int check_push_n(char *num)
  * 
  * Return: 1 if only digits, 0 otherwise
 */
-int check_digits(char *str)
+int is_number(char *str)
 {
 	while (*str != '\0')
 	{

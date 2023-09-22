@@ -17,7 +17,7 @@
 void pint(stack_t **stack, unsigned int linenum)
 {
 	if (*stack == NULL)
-		handle_error(ERR_PINT, NULL, linenum, NULL);
+		error_manager(ERR_PINT, NULL, linenum, NULL);
 
 	printf("%d\n", (*stack)->n);
 }

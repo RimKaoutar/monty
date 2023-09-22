@@ -25,7 +25,7 @@ void mul(stack_t **stack, unsigned int linenum)
 	len = count_stack(*stack);
 
 	if (len < 2)
-		handle_error(ERR_MUL, NULL, linenum, NULL);
+		error_manager(ERR_MUL, NULL, linenum, NULL);
 
 	a = tmp->n;
 	b = tmp->next->n;
