@@ -1,14 +1,23 @@
 #include "monty.h"
 
 /**
-  * handle_execution - Manages the operations to be executed by the interpreter
-  * @op_code: The operation code to execute.
-  * @n: The data that comes with the instruction.
-  * @line: Line number of the command in the bytecode file
-  * @meth: Indicates if the push operation should be stack or queue
-  *
-  * Return: 0 if the operation was successful or errcode if its invalid.
-  */
+ * handle_execution - Executes opcode functions with parameters
+ * @op_code: Opcode string read from file
+ * @n: Parameter to pass for push opcode
+ * @line: Line number of opcode
+ * @meth: Stack/queue method
+ * 
+ * Description:
+ * First checks if opcode specifies stack/queue method and returns.
+ * Gets function pointer for opcode and checks for validity.
+ * For push, validates parameter and calls appropriate push function.
+ * For other opcodes, directly calls function with line number.
+ * Handles queue method by calling push_queue instead of push.
+ * Returns ERR_INVALID if opcode not found, method otherwise.
+ * This function centralizes execution logic and parameter handling.
+ * 
+ * Return: ERR_INVALID or method
+*/
 
 int handle_execution(char *op_code, char *n, unsigned int line, int meth)
 {

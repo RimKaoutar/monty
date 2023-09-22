@@ -1,12 +1,23 @@
 #include "monty.h"
 
 /**
-  * get_opcode - Select the operation that relates to the Monty instruction
-  * @s: The instruction to be executed
-  *
-  * Return: Pointer to the function to be executed or
-  *			NULL if the function don't exists
-  */
+ * get_opcode - Gets the function associated with an opcode
+ * @s: Opcode string
+ * 
+ * Description:
+ * This function maps opcodes to their corresponding functions.
+ * It contains an array of structs with opcode strings paired
+ * with function pointers.
+ * It iterates through the array comparing the passed opcode
+ * string to each array element.
+ * If a match is found, the associated function pointer is
+ * returned.
+ * If no match, NULL is returned.
+ * This allows lookup and calling of the right function based
+ * on opcode read from file.
+ * 
+ * Return: Function pointer if found, NULL if not found
+*/
 
 void (*get_opcode(char *s))(stack_t **, unsigned int)
 {

@@ -3,12 +3,25 @@
 stack_t *head = NULL;
 
 /**
-  * main - Entry point for the Monty Interpreter
-  * @argc: Number of arguments passed into the program.
-  * @argv: Vector containing the arguments passed.
-  *
-  * Return: Always 0.
-  */
+ * main - Entry point of the program
+ * @argc: Argument count
+ * @argv: Argument vector
+ * 
+ * Description:
+ * Opens the Monty bytecodes file and processes each line:
+ * Checks arguments
+ * Opens file
+ * Repeatedly reads each line
+ * Skips comments
+ * Tokens opcode and parameter
+ * Handles execution
+ * Handles any errors
+ * After processing all lines:
+ * Frees stack memory
+ * Closes file
+ * 
+ * Return: Always 0.
+ */
 
 int main(int argc, char *argv[])
 {

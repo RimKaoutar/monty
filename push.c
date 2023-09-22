@@ -1,12 +1,27 @@
 #include "monty.h"
 
 /**
-  * push - Adds a new node at the beginning of the stack
-  * @stack: The head of the stack
-  * @n: The n to push on the stack
-  *
-  * Return: Nothing
-  */
+ * push - Adds a new node at the beginning of the stack
+ * @stack: Double pointer to the stack
+ * @n: Integer value to add
+ * 
+ * Description:
+ * This function adds a new node with data 'n' to the stack.
+ * It allocates memory for new node and handles malloc error.
+ * The data is assigned to new node.
+ * If stack is not empty:
+ * New node next is current head
+ * New node prev is head's prev
+ * Head's prev is updated
+ * Head is updated
+ * If empty stack:
+ * New node next is NULL
+ * New node prev is NULL
+ * Head is updated
+ * This implements pushing or adding to the top of the stack.
+ * 
+ * Return: None
+*/
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new = NULL;
@@ -29,14 +44,26 @@ void push(stack_t **stack, unsigned int n)
 	new->prev = NULL;
 	*stack = new;
 }
-
 /**
-  * push_queue - Adds a new node at the end of the stack
-  * @stack: The head of the stack
-  * @n: The value to push on the stack
-  *
-  * Return: Nothing
-  */
+ * push_queue - Adds a new element at the end of the queue
+ * @stack: Double pointer to the queue
+ * @n: Integer value to add
+ * 
+ * Description:
+ * This function implements adding an element to a queue using a stack.
+ * It allocates memory for new node and handles error.
+ * If queue is not empty:
+ * Iterate to the last node
+ * Link new node as last
+ * Update pointers
+ * If empty queue:
+ * Set next as NULL
+ * Set prev as NULL
+ * Update head
+ * This treats the stack as a queue by adding to the end.
+ * 
+ * Return: None
+*/
 void push_queue(stack_t **stack, unsigned int n)
 {
 	stack_t *current = NULL, *new = NULL;

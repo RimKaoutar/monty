@@ -1,13 +1,22 @@
 #include "monty.h"
 
 /**
- * mod - Computes the rest of the division of the second top element
- *		 of the stack by the top element of the stack
- * @stack: The head of the stack
- * @linenum: Line number of the command in the bytecode file
- *
- * Return: Nothing
- */
+ * mod - Performs modulo operation on the top two elements of stack
+ * @stack: Double pointer to stack
+ * @linenum: Line number of operation
+ * 
+ * Description:
+ * This function performs modulo (%) operation on the top two
+ * elements of the stack.
+ * It first counts stack length and handles error if less than 2.
+ * The integer values of top two nodes are stored in i and j.
+ * It checks for zero modulo and handles error.
+ * The modulo operation j % i is performed and result stored
+ * in the second node.
+ * Top node is removed, its memory freed and stack updated.
+ * 
+ * Return: None
+*/
 void mod(stack_t **stack, unsigned int linenum)
 {
 	unsigned int i = 0, j = 0, len = 0;

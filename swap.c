@@ -2,11 +2,19 @@
 
 /**
  * swap - Swaps the top two elements of the stack
- * @stack: The head of the stack
- * @line_number: Line number of the command in the bytecode file
- *
- * Return: Nothing
- */
+ * @stack: Double pointer to the stack
+ * @line_number: Line number of calling function
+ * This function swaps the top two elements of the stack.
+ * It first counts the number of elements and checks for min of 2.
+ * A temporary variable is used to hold the first element.
+ * The elements are then swapped:
+ * Second element is assigned to first
+ * Temporary variable is assigned to second
+ * This implements swapping without removing from stack.
+ * If stack is empty or has less than 2 elements, an error is handled.
+ * 
+ * Return: None
+*/
 void swap(stack_t **stack, unsigned int line_number)
 {
 	unsigned int len = 0, tmp = 0;

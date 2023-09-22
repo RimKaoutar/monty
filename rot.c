@@ -1,12 +1,23 @@
 #include "monty.h"
 
 /**
-  * rotr - Rotates the stack to the bottom
-  * @stack: The head of the stack
-  * @linenum: Line number of the command in the bytecode file
-  *
-  * Return: Nothing
-  */
+ * rotr - Rotates the stack to the right
+ * @stack: Double pointer to the stack
+ * @linenum: Line number (unused parameter)
+ * 
+ * Description:
+ * This function rotates all elements of the stack to the right by one position.
+ * It first checks for validity of the stack.
+ * It then iterates to the tail (last node) of the stack:
+ * tail pointer tracks the last node
+ * tail->prev->next is made NULL to break link
+ * tail's next is set to head
+ * head is updated to tail
+ * This implements right rotation by making the last
+ * element the new head.
+ * 
+ * Return: None
+*/
 void rotr(stack_t **stack, unsigned int linenum)
 {
 	stack_t *tail = NULL;
@@ -24,14 +35,22 @@ void rotr(stack_t **stack, unsigned int linenum)
 		*stack = tail;
 	}
 }
-
 /**
-  * rotl - Rotates the stack to the top
-  * @stack: The head of the stack
-  * @linenum: Line number of the command in the bytecode file
-  *
-  * Return: Nothing
-  */
+ * rotl - Rotates the stack to the left
+ * @stack: Double pointer to the stack
+ * @linenum: Line number (unused parameter)
+ * 
+ * Description:
+ * This function rotates all elements of the stack to the left by one position.
+ * It first checks for validity of the stack.
+ * It then iterates through the stack, swapping each node's data with its next:
+ * Stores current data in temp
+ * Assigns next data to current
+ * Assigns temp to next
+ * This implements left rotation of the stack contents.
+ * 
+ * Return: None
+*/
 void rotl(stack_t **stack, unsigned int linenum)
 {
 	unsigned int temp = 0;

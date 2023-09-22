@@ -1,11 +1,17 @@
 #include "monty.h"
 
 /**
-  * check_args_num - Check the arguments passed on to the interpreter
-  * @argn: Number of args
-  *
-  * Return: Nothing
-  */
+ * check_args_num - Checks if the number of arguments passed is valid
+ * @num: Number of program arguments
+ * 
+ * Description:
+ * This function checks if the number of arguments passed to the
+ * program is equal to the expected minimum number of arguments.
+ * If the number is incorrect, the error handler is called to
+ * handle the error.
+ * 
+ * Return: None
+*/
 
 void check_args_num(int num)
 {
@@ -14,11 +20,18 @@ void check_args_num(int num)
 }
 
 /**
-  * check_read_permission - Checks if the user has permissions to read the file
-  * @filename: The path to the file
-  *
-  * Return: Nothing
-  */
+ * check_read_permission - Checks if the given file can be read
+ * @file: Name of the file to check read permission for
+ * 
+ * Description:
+ * This function uses the access() system call to check if the
+ * given file can be read. Access returns -1 on error.
+ * If access returns an error, an error message is printed to
+ * stderr and the program exits with EXIT_FAILURE status.
+ * Otherwise, the file can be read and no error occurs.
+ * 
+ * Return: None
+*/
 
 void check_read_permission(char *file)
 {
@@ -30,11 +43,20 @@ void check_read_permission(char *file)
 }
 
 /**
-  * check_push_data - Check the data of the push instruction
-  * @data: The parameter to be validated.
-  *
-  * Return: 0 if data is valid or errcode if is invalid.
-  */
+ * check_push_data - Checks if data is valid for pushing onto stack
+ * @num: String to check
+ * 
+ * Description:
+ * Checks if the given string contains only digit characters.
+ * Returns ERR_PUSH if:
+ * num is NULL
+ * check_digits() returns 0, meaning num is empty or invalid
+ * Otherwise returns VALID_DATA if num contains only digits.
+ * This verifies data is in the proper format before allowing it
+ * to be pushed onto the stack.
+ * 
+ * Return: ERR_PUSH (201) or VALID_DATA (0)
+*/
 int check_push_data(char *num)
 {
 	if (num == NULL || check_digits(num) == 0)
@@ -44,13 +66,19 @@ int check_push_data(char *num)
 }
 
 /**
-  * check_digits - Checks if all characters in a string are digits
-  * @s: The string to be checked.
-  *
-  * Return: 1 if all if all evaluated characters are digits except
-  *			for hyphens or 0 if not
-  */
-
+ * check_digits - Checks if a string contains only digit characters
+ * @str: String to check
+ * 
+ * Description:
+ * This function checks if a given string contains only digit characters.
+ * It iterates through each character of the string. If the first character
+ * is '-', it skips it to allow for negative numbers.
+ * For each remaining character, it checks if it is a digit using isdigit().
+ * If any non-digit character is found, it returns 0.
+ * Otherwise it returns 1 if the full string contains only digits.
+ * 
+ * Return: 1 if only digits, 0 otherwise
+*/
 int check_digits(char *str)
 {
 	while (*str != '\0')
@@ -60,12 +88,9 @@ int check_digits(char *str)
 			str++;
 			continue;
 		}
-
 		if (isdigit(*str) == 0)
 			return (0);
-
 		str++;
 	}
-
 	return (1);
 }
