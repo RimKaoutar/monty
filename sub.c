@@ -4,7 +4,7 @@
  * sub - Subtracts the top two elements of the stack
  * @stack: Double pointer to the stack
  * @linenum: Line number
- * 
+ *
  * Description:
  * This function subtracts the top two elements of the stack.
  * It first counts the stack length and checks for min length.
@@ -12,7 +12,7 @@
  * The subtraction b - a is performed and stored in next node.
  * The top node is freed after updating the stack pointer.
  * This implements subtraction on the stack without popping.
- * 
+ *
  * Return: None
  */
 void sub(stack_t **stack, unsigned int linenum)
