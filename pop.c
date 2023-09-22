@@ -3,16 +3,16 @@
 /**
  * pop - func that removes the top element of the stack
  * @stack: The head of the stack
- * @line_number: Line number of the command in the bytecode file
+ * @linenum: Line number of the command in the bytecode file
  *
  * Return: Nothing
  */
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int linenum)
 {
 	stack_t *current = *stack, *temp = NULL;
 
 	if (*stack == NULL)
-		handle_error(ERR_POP, NULL, line_number, NULL);
+		handle_error(ERR_POP, NULL, linenum, NULL);
 
 	temp = current;
 	if (current->next)

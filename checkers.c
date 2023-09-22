@@ -7,9 +7,9 @@
   * Return: Nothing
   */
 
-void check_args_num(int argn)
+void check_args_num(int num)
 {
-	if (argn != MIN_ARGS)
+	if (num != MIN_ARGS)
 		handle_error(ERR_USAGE, NULL, 0, NULL);
 }
 
@@ -20,11 +20,11 @@ void check_args_num(int argn)
   * Return: Nothing
   */
 
-void check_read_permission(char *filename)
+void check_read_permission(char *file)
 {
-	if (access(filename, R_OK) == -1)
+	if (access(file, R_OK) == -1)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -35,9 +35,9 @@ void check_read_permission(char *filename)
   *
   * Return: 0 if data is valid or errcode if is invalid.
   */
-int check_push_data(char *data)
+int check_push_data(char *num)
 {
-	if (data == NULL || check_digits(data) == 0)
+	if (num == NULL || check_digits(num) == 0)
 		return (ERR_PUSH);
 
 	return (VALID_DATA);
@@ -51,20 +51,20 @@ int check_push_data(char *data)
   *			for hyphens or 0 if not
   */
 
-int check_digits(char *s)
+int check_digits(char *str)
 {
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		if (s[0] == '-')
+		if (str[0] == '-')
 		{
-			s++;
+			str++;
 			continue;
 		}
 
-		if (isdigit(*s) == 0)
+		if (isdigit(*str) == 0)
 			return (0);
 
-		s++;
+		str++;
 	}
 
 	return (1);

@@ -1,6 +1,13 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
+#include <ctype.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
 /* Constants */
 #define VALID_DATA		0
 #define MIN_ARGS		2
@@ -26,13 +33,6 @@
 #define ERR_MOD			210
 #define ERR_PCHAR_F		211
 #define ERR_PCHAR_E		212
-
-#include <ctype.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -70,7 +70,7 @@ int handle_execution(char *op_code, char *data, unsigned int line, int mstat);
 void handle_error(int errno, char *opcode, unsigned int line, char *line_read);
 void handle_inv_malloc(int errno, char *opcode, unsigned int line);
 void handle_more_errors(int errno, unsigned int line);
-void (*select_op(char *s))(stack_t **, unsigned int);
+void (*get_opcode(char *s))(stack_t **, unsigned int);
 void handle_op_errors(int errno, unsigned int line);
 void push(stack_t **stack, unsigned int data);
 void check_read_permission(char *filename);

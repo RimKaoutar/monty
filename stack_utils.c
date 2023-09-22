@@ -8,17 +8,17 @@
 
 void free_stack(void)
 {
-	stack_t *curr = NULL;
+	stack_t *current = NULL;
 
-	if (head)
+	if (head != NULL)
 	{
-		curr = head;
+		current = head;
 
-		while (curr)
+		while (current)
 		{
 			head = head->next;
-			free(curr);
-			curr = head;
+			free(current);
+			current = head;
 		}
 	}
 }
@@ -32,14 +32,14 @@ void free_stack(void)
 
 unsigned int count_stack(stack_t *stack)
 {
-	stack_t *curr = stack;
-	unsigned int lenght = 0;
+	stack_t *current = stack;
+	unsigned int len = 0;
 
-	while (curr)
+	while (current)
 	{
-		lenght++;
-		curr = curr->next;
+		len++;
+		current = current->next;
 	}
 
-	return (lenght);
+	return (len);
 }

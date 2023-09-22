@@ -12,39 +12,39 @@ stack_t *head = NULL;
 
 int main(int argc, char *argv[])
 {
-	FILE *monty_file = NULL;
-	size_t cmd_len = 0;
-	unsigned int line_number = 0;
-	int command = 0, status = 0;
-	char *filename = NULL, *opcode = NULL, *data = NULL, *line_read = NULL;
+	FILE *file = NULL;
+	char *filename = NULL, *opcode = NULL, *n = NULL, *linenum = NULL;
+	size_t len = 0;
+	int status = 0, cmd = 0;
+	unsigned int linenum = 0;
 
 	filename = argv[1];
 	check_args_num(argc);
-	monty_file = open_file(filename);
+	file = open_file(filename);
 
-	while ((command = getline(&line_read, &cmd_len, monty_file)) != -1)
+	while ((cmd = getline(&linenum, &len, file)) != -1)
 	{
-		line_number++;
-		opcode = strtok(line_read, " \t\n");
+		linenum++;
+		opcode = strtok(linenum, " \t\n");
 		if (opcode)
 		{
 			if (opcode[0] == '#')
 				continue;
 
-			data = strtok(NULL, " \t\n");
-			status = handle_execution(opcode, data, line_number, status);
+			n = strtok(NULL, " \t\n");
+			status = handle_execution(opcode, n, linenum, status);
 
 			if (status >= 100 && status < 300)
 			{
-				fclose(monty_file);
-				handle_error(status, opcode, line_number, line_read);
+				fclose(file);
+				handle_error(status, opcode, linenum, linenum);
 			}
 		}
 
 	}
 
 	free_stack();
-	free(line_read);
-	fclose(monty_file);
+	free(linenum);
+	fclose(file);
 	return (0);
 }

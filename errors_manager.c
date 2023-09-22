@@ -5,42 +5,42 @@
   * @errno: Custom error code specifier.
   * @opcode: The operation code.
   * @line: The line on which the error occurred.
-  * @line_read: The reserved error line buffer
+  * @linenum: The reserved error line buffer
   *
   * Return: Nothing
   */
 
-void handle_error(int errno, char *opcode, unsigned int line, char *line_read)
+void handle_error(int errnum, char *opcode, unsigned int line, char *linenum)
 {
-	if (errno >= 100 && errno < 200)
-		handle_inv_malloc(errno, opcode, line);
-	else if (errno >= 200 && errno <= 210)
-		handle_op_errors(errno, line);
-	else if (errno >= 211 && errno <= 220)
-		handle_more_errors(errno, line);
+	if (errnum >= 100 && errnum < 200)
+		handle_inv_malloc(errnum, opcode, line);
+	else if (errnum >= 200 && errnum <= 210)
+		handle_op_errors(errnum, line);
+	else if (errnum >= 211 && errnum <= 220)
+		handle_more_errors(errnum, line);
 	else
 		return;
 
 	free_stack();
 
-	if (line_read)
-		free(line_read);
+	if (linenum)
+		free(linenum);
 
 	exit(EXIT_FAILURE);
 }
 
 /**
   * handle_inv_malloc - Handles errors for malloc and bad instructions
-  * @errno: Custom error code specifier.
+  * @errnum: Custom error code specifier.
   * @opcode: The operation code.
   * @line: The line on which the error occurred.
   *
   * Return: Nothing
   */
 
-void handle_inv_malloc(int errno, char *opcode, unsigned int line)
+void handle_inv_malloc(int errnum, char *opcode, unsigned int line)
 {
-	switch (errno)
+	switch (errnum)
 	{
 		case ERR_INVALID:
 			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
@@ -55,15 +55,15 @@ void handle_inv_malloc(int errno, char *opcode, unsigned int line)
 
 /**
   * handle_op_errors - Handles errors for opcode operations.
-  * @errno: Custom error code specifier.
+  * @errnum: Custom error code specifier.
   * @line: The line on which the error occurred.
   *
   * Return: Nothing
   */
 
-void handle_op_errors(int errno, unsigned int line)
+void handle_op_errors(int errnum, unsigned int line)
 {
-	switch (errno)
+	switch (errnum)
 	{
 		case ERR_USAGE:
 			fprintf(stderr, "USAGE: monty file\n");
@@ -105,14 +105,14 @@ void handle_op_errors(int errno, unsigned int line)
 
 /**
   * handle_more_errors - Handles errors for pchar.
-  * @errno: Custom error code specifier.
+  * @errnum: Custom error code specifier.
   * @line: The line on which the error occurred
   *
   * Return: Nothing
   */
-void handle_more_errors(int errno, unsigned int line)
+void handle_more_errors(int errnum, unsigned int line)
 {
-	switch (errno)
+	switch (errnum)
 	{
 		case ERR_PCHAR_F:
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);

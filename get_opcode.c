@@ -1,16 +1,17 @@
 #include "monty.h"
 
 /**
-  * select_op - Select the operation that relates to the Monty instruction
+  * get_opcode - Select the operation that relates to the Monty instruction
   * @s: The instruction to be executed
   *
   * Return: Pointer to the function to be executed or
   *			NULL if the function don't exists
   */
 
-void (*select_op(char *s))(stack_t **, unsigned int)
+void (*get_opcode(char *s))(stack_t **, unsigned int)
 {
-	instruction_t ops[] = {
+	int i = 0;
+	instruction_t opcodes[] = {
 		{ "push_queue", push_queue },
 		{ "pchar", pchar },
 		{ "div", divide },
@@ -29,12 +30,11 @@ void (*select_op(char *s))(stack_t **, unsigned int)
 		{ "mod", mod },
 		{ NULL, NULL }
 	};
-	int i = 0;
 
-	while (ops[i].opcode)
+	while (opcodes[i].opcode)
 	{
-		if (strcmp(s, ops[i].opcode) == 0)
-			return (ops[i].f);
+		if (strcmp(s, opcodes[i].opcode) == 0)
+			return (opcodes[i].f);
 		i++;
 	}
 

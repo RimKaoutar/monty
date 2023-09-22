@@ -9,17 +9,17 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	unsigned int length = 0, temp = 0;
+	unsigned int len = 0, tmp = 0;
 
-	length = count_stack(*stack);
+	len = count_stack(*stack);
 
-	if (length < 2)
+	if (len < 2)
 		handle_error(ERR_SWAP, NULL, line_number, NULL);
 
-	if (*stack)
+	if (*stack != NULL)
 	{
-		temp = (*stack)->n;
+		tmp = (*stack)->n;
 		(*stack)->n = (*stack)->next->n;
-		(*stack)->next->n = temp;
+		(*stack)->next->n = tmp;
 	}
 }

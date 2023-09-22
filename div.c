@@ -9,21 +9,21 @@
  */
 void divide(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
-	unsigned int u = 0, v = 0, length = 0;
+	unsigned int i = 0, j = 0, len = 0;
+	stack_t *tmp = *stack;
 
-	length = count_stack(*stack);
+	len = count_stack(*stack);
 
-	if (length < 2)
+	if (len < 2)
 		handle_error(ERR_DIV, NULL, line_number, NULL);
 
-	u = temp->n;
+	i = tmp->n;
 
-	if (u == 0)
+	if (i == 0)
 		handle_error(ERR_ZERO_DIV, NULL, line_number, NULL);
 
-	v = temp->next->n;
-	temp->next->n = v / u;
-	*stack = temp->next;
-	free(temp);
+	j = tmp->next->n;
+	tmp->next->n = j / i;
+	*stack = tmp->next;
+	free(tmp);
 }
