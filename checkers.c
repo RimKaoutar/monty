@@ -11,7 +11,7 @@
  * handle the error.
  * 
  * Return: None
-*/
+ */
 
 void check_args_num(int num)
 {
@@ -31,7 +31,7 @@ void check_args_num(int num)
  * Otherwise, the file can be read and no error occurs.
  * 
  * Return: None
-*/
+ */
 
 void is_readable(char *file)
 {
@@ -56,7 +56,7 @@ void is_readable(char *file)
  * to be pushed onto the stack.
  * 
  * Return: ERR_PUSH (201) or VALID_DATA (0)
-*/
+ */
 int check_push_n(char *num)
 {
 	if (num == NULL || is_number(num) == 0)
@@ -78,7 +78,7 @@ int check_push_n(char *num)
  * Otherwise it returns 1 if the full string contains only digits.
  * 
  * Return: 1 if only digits, 0 otherwise
-*/
+ */
 int is_number(char *str)
 {
 	while (*str != '\0')

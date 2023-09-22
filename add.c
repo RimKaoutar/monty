@@ -5,7 +5,7 @@
  * them with their sum.
  * @stack: Double pointer to the top node of the stack
  * @linenum: Line number of error origin if any
- * 
+ *
  * Description:
  * This function adds the data element (n) of the top two nodes
  * of the stack. It updates the data of the second node with the
@@ -16,7 +16,7 @@
  * It then saves the data of the top two nodes, performs the addition
  * and stores the result in the second node. The top node is freed
  * after removing it from the stack.
- * 
+ *
  * Return: Nothing
  */
 void add(stack_t **stack, unsigned int linenum)

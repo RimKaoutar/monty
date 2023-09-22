@@ -19,7 +19,7 @@
  * Finally, the program exits with failure status.
  * 
  * Return: None
-*/
+ */
 
 void error_manager(int errnum, char *opcode, unsigned int line, char *linenum)
 {
@@ -61,7 +61,7 @@ void error_manager(int errnum, char *opcode, unsigned int line, char *linenum)
  * invalid memory conditions.
  * 
  * Return: None
-*/
+ */
 
 void malloc_error(int errnum, char *opcode, unsigned int line)
 {
@@ -103,7 +103,7 @@ void malloc_error(int errnum, char *opcode, unsigned int line)
  * This provides detailed error contexts to operations.
  * 
  * Return: None
-*/
+ */
 
 void handle_op_errors(int errnum, unsigned int line)
 {
@@ -163,7 +163,7 @@ void handle_op_errors(int errnum, unsigned int line)
  * This provides customized outputs for any unique error conditions.
  * 
  * Return: None
-  */
+ */
 void pchar_error(int errnum, unsigned int line)
 {
 	switch (errnum)

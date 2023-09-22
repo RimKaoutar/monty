@@ -14,7 +14,7 @@
  * This allows representation of integers as chars for certain opcodes.
  * 
  * Return: None
-*/
+ */
 void pchar(stack_t **stack, unsigned int linenum)
 {
 	if (*stack == NULL)

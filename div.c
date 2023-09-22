@@ -14,7 +14,7 @@
  * node, removes top node and frees its memory.
  * 
  * Return: None
-*/
+ */
 void divide(stack_t **stack, unsigned int line_number)
 {
 	unsigned int i = 0, j = 0, len = 0;

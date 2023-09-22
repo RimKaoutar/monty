@@ -4,7 +4,7 @@
  * mul - Performs multiplication of the top two elements of the stack
  * @stack: Double pointer to the stack
  * @linenum: Line number of the operation
- * 
+ *
  * Description:
  * This function multiplies the top two elements of the stack.
  * It first counts the length of the stack and handles error
@@ -14,9 +14,9 @@
  * the result in the second node.
  * The top node is removed by updating the stack pointer, and
  * its memory is freed.
- * 
+ *
  * Return: None
-*/
+ */
 void mul(stack_t **stack, unsigned int linenum)
 {
 	unsigned int a = 0, b = 0, len = 0;

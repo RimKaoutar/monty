@@ -2,7 +2,7 @@
 
 /**
  * _free - Frees the memory of an entire stack
- * 
+ *
  * Description:
  * This function iterates through the stack and frees the memory of
  * each node.
@@ -14,9 +14,9 @@
  * Update current
  * This iterates through the entire stack, freeing each node.
  * Once complete, the stack is fully freed.
- * 
+ *
  * Return: None
-*/
+ */
 
 void _free(void)
 {
@@ -37,7 +37,7 @@ void _free(void)
 /**
  * count_stack - Counts the number of nodes in a stack
  * @stack: Pointer to the head of the stack
- * 
+ *
  * Description:
  * This function counts the number of nodes in a stack. It takes
  * a pointer to the head node as a parameter.
@@ -50,9 +50,9 @@ void _free(void)
  * Once the whole stack is traversed, len will contain
  * the number of nodes.
  * This allows obtaining the size or length of the stack.
- * 
+ *
  * Return: Number of nodes in the stack
-*/
+ */
 
 unsigned int count_stack(stack_t *stack)
 {

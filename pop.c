@@ -18,7 +18,7 @@
  * This implements popping or removing the top element.
  * 
  * Return: None
-*/
+ */
 void pop(stack_t **stack, unsigned int linenum)
 {
 	stack_t *current = *stack, *temp = NULL;

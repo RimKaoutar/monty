@@ -3,7 +3,7 @@
 /**
  * open_file - Opens a file for reading
  * @filename: Name of the file to open
- * 
+ *
  * Description:
  * This function opens the given file and returns a FILE pointer.
  * It first calls is_readable() to validate permissions.
@@ -11,9 +11,9 @@
  * If fopen() fails, an error message is printed and the program exits.
  * The FILE pointer is returned upon success.
  * This provides a way to centrally handle file opening and permissions.
- * 
+ *
  * Return: FILE pointer if success, exits on failure
-*/
+ */
 FILE *open_file(char *filename)
 {
 	FILE *file = NULL;

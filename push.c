@@ -21,7 +21,7 @@
  * This implements pushing or adding to the top of the stack.
  * 
  * Return: None
-*/
+ */
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new = NULL;
@@ -63,7 +63,7 @@ void push(stack_t **stack, unsigned int n)
  * This treats the stack as a queue by adding to the end.
  * 
  * Return: None
-*/
+ */
 void push_queue(stack_t **stack, unsigned int n)
 {
 	stack_t *current = NULL, *new = NULL;

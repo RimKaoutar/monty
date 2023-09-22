@@ -14,7 +14,7 @@
  * This implements subtraction on the stack without popping.
  * 
  * Return: None
-*/
+ */
 void sub(stack_t **stack, unsigned int linenum)
 {
 	stack_t *tmp = *stack;

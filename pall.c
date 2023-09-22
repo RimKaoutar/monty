@@ -15,7 +15,7 @@
  * This provides a way to print the entire stack contents.
  * 
  * Return: None
-*/
+ */
 void pall(stack_t **stack, unsigned int linenum)
 {
 	stack_t *current = NULL;

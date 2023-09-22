@@ -6,7 +6,7 @@
  * @n: Parameter to pass for push opcode
  * @line: Line number of opcode
  * @meth: Stack/queue method
- * 
+ *
  * Description:
  * First checks if opcode specifies stack/queue method and returns.
  * Gets function pointer for opcode and checks for validity.
@@ -15,9 +15,9 @@
  * Handles queue method by calling push_queue instead of push.
  * Returns ERR_INVALID if opcode not found, method otherwise.
  * This function centralizes execution logic and parameter handling.
- * 
+ *
  * Return: ERR_INVALID or method
-*/
+ */
 
 int executionner(char *op_code, char *n, unsigned int line, int meth)
 {

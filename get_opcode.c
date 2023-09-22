@@ -17,7 +17,7 @@
  * on opcode read from file.
  * 
  * Return: Function pointer if found, NULL if not found
-*/
+ */
 
 void (*get_opcode(char *s))(stack_t **, unsigned int)
 {

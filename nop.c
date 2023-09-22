@@ -14,8 +14,8 @@
  * as required by the specifications.
  * 
  * Return: None
-*/
+ */
 void nop(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)))
 {
-  return; /* nothing to do */
+	return; /* nothing to do */
 }

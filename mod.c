@@ -16,7 +16,7 @@
  * Top node is removed, its memory freed and stack updated.
  * 
  * Return: None
-*/
+ */
 void mod(stack_t **stack, unsigned int linenum)
 {
 	unsigned int i = 0, j = 0, len = 0;

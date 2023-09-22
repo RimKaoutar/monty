@@ -16,7 +16,7 @@
  * This allows printing string values stored in the stack.
  * 
  * Return: None
-*/
+ */
 void pstr(stack_t **stack, unsigned int linenum)
 {
 	stack_t *current = *stack;

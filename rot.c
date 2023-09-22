@@ -17,7 +17,7 @@
  * element the new head.
  * 
  * Return: None
-*/
+ */
 void rotr(stack_t **stack, unsigned int linenum)
 {
 	stack_t *tail = NULL;
@@ -50,7 +50,7 @@ void rotr(stack_t **stack, unsigned int linenum)
  * This implements left rotation of the stack contents.
  * 
  * Return: None
-*/
+ */
 void rotl(stack_t **stack, unsigned int linenum)
 {
 	unsigned int temp = 0;
